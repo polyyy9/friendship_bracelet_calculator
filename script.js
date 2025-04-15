@@ -4,8 +4,13 @@ let numberOfThreads = document.querySelector('#numberOfThreads');
 let resultText = document.querySelector('#result');
 
 calculateButton.addEventListener('click', function(){
-    let length = (sizeOfWrist.value * getAdditionalMultiplier(numberOfThreads.value)) + (lengthOfTies.value*2);
-    resultText.innerHTML = `Длина нитей для фенечки - ${length} см`
+    if (sizeOfWrist.value > 0 && lengthOfTies.value > 0 && numberOfThreads.value > 0){
+        let length = (sizeOfWrist.value * getAdditionalMultiplier(numberOfThreads.value)) + (lengthOfTies.value*2);
+        resultText.innerHTML = `Длина нитей для фенечки - ${length} см`
+    } else {
+        alert("Введите значение больше нуля!")
+    }
+
 })
 
 function getAdditionalMultiplier(threads){
